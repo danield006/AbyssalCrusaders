@@ -18,5 +18,22 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         enemy.SetDestination(player.transform.position);
+        kill();
+    }
+
+    public void kill() {
+        if(Input.GetMouseButtonDown(0)) { //if left click on enemy
+            RaycastHit hit;
+
+            if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity)) {
+                if(hit.collider.gameObject) {
+                    Destroy(gameObject);
+                }
+            }
+        }
+    }
+
+    private void OnDestroy() {
+        
     }
 }
