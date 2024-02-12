@@ -14,7 +14,8 @@ public class Exp : MonoBehaviour
     {
         exp = 0;
         level = 1;
-        cap = Mathf.RoundToInt( 0.04f * (1 ^ 3) + 0.8f * (1 ^ 2) + 2 * 1);
+        cap = Mathf.RoundToInt( 0.04f * Mathf.Pow(level, 3) + 0.8f * Mathf.Pow(level, 2) + 2 * level);
+
         expText.text = "Exp: " + exp.ToString() + "/" + cap.ToString();
         levelText.text = "Level " + level.ToString();
     }
@@ -28,8 +29,8 @@ public class Exp : MonoBehaviour
     private void levelUp() {
         level++;
         exp = exp - cap;
-        cap = Mathf.RoundToInt( 0.04f * (level ^ 3) + 0.8f * (level ^ 2) + 2 * level);
 
+        cap = Mathf.RoundToInt( 0.04f * Mathf.Pow(level, 3) + 0.8f * Mathf.Pow(level, 2) + 2 * level);
         expText.text = "Exp: " + exp.ToString() + "/" + cap.ToString();
         levelText.text = "Level " + level.ToString();
     }
