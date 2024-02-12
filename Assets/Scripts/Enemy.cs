@@ -27,9 +27,11 @@ public class Enemy : MonoBehaviour
             RaycastHit hit;
 
             if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity)) {
-                if(hit.collider.gameObject) {
-                    spawnDrop();
-                    Destroy(gameObject);
+                if(hit.collider.tag == "Enemy") {
+                    if(hit.transform == this.transform) {
+                        spawnDrop();
+                        Destroy(gameObject);
+                    }
                 }
             }
         }
