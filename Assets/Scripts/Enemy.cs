@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
+    public List<GameObject> drops;
     NavMeshAgent enemy;
     GameObject player;
     // Start is called before the first frame update
@@ -27,13 +28,16 @@ public class Enemy : MonoBehaviour
 
             if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity)) {
                 if(hit.collider.gameObject) {
+                    spawnDrop();
                     Destroy(gameObject);
                 }
             }
         }
     }
 
-    private void OnDestroy() {
-        
+    private void spawnDrop() {
+        Vector3 location = transform.position;
+        GameObject drop = drops[0];//add a way for random drops
+        Instantiate(drop, location, Quaternion.identity);
     }
 }
