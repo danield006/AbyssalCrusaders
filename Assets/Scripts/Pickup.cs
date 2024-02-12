@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Drop : MonoBehaviour
+public class Pickup : MonoBehaviour
 {
      void OnCollisionEnter(Collision other)
     {
