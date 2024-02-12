@@ -10,6 +10,7 @@ public class Exp : MonoBehaviour
     public int exp;
     public int level;
     public int cap;
+    public GameObject PausePanel;
     void Start()
     {
         exp = 0;
@@ -20,10 +21,16 @@ public class Exp : MonoBehaviour
         levelText.text = "Level " + level.ToString();
     }
 
+    public void Pause(){
+        Debug.Log("Pause");
+        PausePanel.SetActive(true);
+        Time.timeScale = 0;
+    }
     void Update()
     {
         if(exp >= cap) {
             levelUp();
+            Pause();
         }
     }
     private void levelUp() {
