@@ -71,7 +71,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drops:
   - {fileID: 6847357369760736920, guid: b3591cded3c46cd4cb1166db31a8dfe3, type: 3}
-  health: 1
+  health: 2
 --- !u!136 &7991474448990187483
 CapsuleCollider:
   m_ObjectHideFlags: 0
