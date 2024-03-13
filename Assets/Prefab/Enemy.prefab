@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8683945717193803426}
   - component: {fileID: 1176463538070559930}
   - component: {fileID: 2996706823380261628}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -142,4 +142,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drops:
-  - {fileID: 2219906455617995190, guid: 122aa2e9ce18999439e0b644a8bde7d0, type: 3}
+  - {fileID: 6847357369760736920, guid: b3591cded3c46cd4cb1166db31a8dfe3, type: 3}
+  health: 1

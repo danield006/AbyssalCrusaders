@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Exp : MonoBehaviour
 {
+    public GameObject LevelUpMenu;
     public TextMeshProUGUI expText;
     public TextMeshProUGUI levelText;
     public int exp;
@@ -33,10 +34,12 @@ public class Exp : MonoBehaviour
         cap = Mathf.RoundToInt( 0.04f * Mathf.Pow(level, 3) + 0.8f * Mathf.Pow(level, 2) + 2 * level);
         expText.text = "Exp: " + exp.ToString() + "/" + cap.ToString();
         levelText.text = "Level " + level.ToString();
+
+        LevelUpMenu.SetActive(true);
+        Time.timeScale = 0f;
     }
 
-    void OnCollisionEnter(Collision other)
-    {
+    private void OnTriggerEnter(Collider other) {
         Debug.Log("Entered collision with " + other.gameObject.name);
         if(other.gameObject.tag == "Dropped") {
             exp += 1;
