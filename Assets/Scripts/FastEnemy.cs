@@ -13,7 +13,7 @@ public class FastEnemy : MonoBehaviour, IDamageable
     public float speed;
     public event Action OnDeath;
     public event Action<int> OnTakeDamage;
-
+    private float timer = 10f;
     
     public int health;
 
@@ -27,9 +27,14 @@ public class FastEnemy : MonoBehaviour, IDamageable
     }
 
     // Update is called once per frame
-    private void FixedUpdate() 
+    private void Update() 
     {
-        enemy.Move(orientation.forward * (speed/100));
+        enemy.Move(orientation.forward * speed * Time.deltaTime);
+        timer -= Time.deltaTime;
+        if (timer <= 0) {
+            transform.LookAt(player.transform);
+            timer = 10f;
+        }
     }
 
     private void spawnDrop() {
