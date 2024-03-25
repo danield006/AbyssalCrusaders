@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 20586117964894500}
   - component: {fileID: 6125064479136306214}
   - component: {fileID: 5553108162551355407}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Projectile
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 576
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
@@ -146,3 +146,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c808b4a5de235444a966878099ea0028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageAmount: 1

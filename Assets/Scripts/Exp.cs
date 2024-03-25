@@ -11,6 +11,8 @@ public class Exp : MonoBehaviour
     public int exp;
     public int level;
     public int cap;
+
+    [SerializeField] private ExpBar expBar;
     void Start()
     {
         exp = 0;
@@ -26,6 +28,7 @@ public class Exp : MonoBehaviour
         if(exp >= cap) {
             levelUp();
         }
+        expBar.UpdateExpBar(cap, exp);
     }
     private void levelUp() {
         level++;

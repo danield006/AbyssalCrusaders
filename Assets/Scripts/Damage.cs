@@ -6,30 +6,33 @@ using UnityEngine;
 
 public class Damage : MonoBehaviour, IDamageable
 {
-    public TextMeshProUGUI healthText;
     public int currentHealth;
     public int maxHealth = 10;
     public event Action OnDeath;
     public event Action<int> OnTakeDamage;
 
+    [SerializeField] private HealthBar healthBar;
+
+    private void Start() {
+        currentHealth = maxHealth;
+        healthBar.UpdateHealthBar(maxHealth, currentHealth);
+    }
     public void Heal(int healAmount)
     {
         currentHealth += healAmount;
         if(currentHealth > maxHealth) currentHealth = maxHealth;
 
-        healthText.text = "Health: " + currentHealth + "/" + maxHealth;
+        healthBar.UpdateHealthBar(maxHealth, currentHealth);
     }
 
     void IDamageable.Damage(int damageAmount)
     {
         currentHealth -= damageAmount;
-        healthText.text = "Health: " + currentHealth + "/" + maxHealth;
+
+        healthBar.UpdateHealthBar(maxHealth, currentHealth);
     }
 
-    private void Start() {
-        currentHealth = maxHealth;
-        healthText.text = "Health: " + currentHealth + "/" + maxHealth;
-    }
+
 
     public int Health {
         get {
@@ -37,7 +40,7 @@ public class Damage : MonoBehaviour, IDamageable
     } set{
         currentHealth = value;
 
-        healthText.text = "Health: " + currentHealth + "/" + maxHealth;    
+        healthBar.UpdateHealthBar(maxHealth, currentHealth);
     } }
 
 }

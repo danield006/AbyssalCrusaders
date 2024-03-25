@@ -11,13 +11,20 @@ public class PlayerController : MonoBehaviour {
 
     //Dash
     public float dashForce = 2f;
-    public float dashDuration = 2f;
+    public float dashCount = 1f;
 
     public float dashCooldown = 5f;
     private float dashTimer = 0;
 
+    [SerializeField] private DashBar dashBar;
+
     private void Update() {
         if(dashTimer > 0) dashTimer -= Time.deltaTime;
+        //Dash
+        if(Input.GetMouseButtonDown(1)) {
+            Dash();
+        }
+        dashBar.UpdateDashBar(dashCooldown, dashCooldown - dashTimer);
     }
 
     // Update is called once per frame
@@ -29,10 +36,7 @@ public class PlayerController : MonoBehaviour {
         Vector3 movement = new Vector3(inputX, 0.0f, inputY);
         _rb.AddForce(movement.normalized * (speed/100));
 
-        //Dash
-        if(Input.GetMouseButtonDown(1)) {
-            Dash();
-        }
+        
 
         //Face mouse
         Ray cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
@@ -52,11 +56,6 @@ public class PlayerController : MonoBehaviour {
         else dashTimer = dashCooldown;
         Vector3 forceToApply = orientation.forward * dashForce;
         _rb.AddForce(forceToApply, ForceMode.Impulse);
-
-        Invoke(nameof(ResetDash), dashDuration);
-    }
-    
-    private void ResetDash() {
 
     }
 }
