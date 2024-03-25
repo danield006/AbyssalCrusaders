@@ -19,14 +19,23 @@ public class RangeEnemy : MonoBehaviour, IDamageable
     public event Action OnDeath;
     public event Action<int> OnTakeDamage;
 
-    
+    //stats
     public int health;
+    public int attack = 1;
+
+    //flash
+    MeshRenderer meshRenderer;
+    Color origColor;
+    float flashTime = .15f;
 
     // Start is called before the first frame update
     void Start()
     {
         enemy = GetComponent<NavMeshAgent>();
         player = GameObject.FindWithTag("Player");
+        //flash
+        meshRenderer = GetComponentInChildren<MeshRenderer>();
+        origColor = meshRenderer.material.color;
     }
 
     // Update is called once per frame
@@ -54,7 +63,7 @@ public class RangeEnemy : MonoBehaviour, IDamageable
     public void Damage(int damageAmount)
     {
         health -= damageAmount;
-
+        StartCoroutine(EFlash());
         if (health <= 0)
         {
             spawnDrop();
@@ -77,7 +86,7 @@ public class RangeEnemy : MonoBehaviour, IDamageable
         IDamageable damageable = other.gameObject.GetComponent<IDamageable>();
         if(damageable != null && other.gameObject.tag == "Player")
         {
-            damageable.Damage(1);
+            damageable.Damage(attack);
         }
         
     }
@@ -92,7 +101,14 @@ public class RangeEnemy : MonoBehaviour, IDamageable
         GameObject bulletObj = Instantiate(enemyBullet, spawnPoint.position, spawnPoint.rotation) as GameObject;
         Rigidbody bulletRig = bulletObj.GetComponent<Rigidbody>();
         bulletRig.AddForce(bulletRig.transform.forward * enemySpeed);
+        bulletObj.GetComponent<hitPlayer>().setDamage(attack);
         Destroy(bulletObj, 3f);
+    }
+
+    IEnumerator EFlash() {
+        meshRenderer.material.color = Color.white;
+        yield return new WaitForSeconds(flashTime);
+        meshRenderer.material.color = origColor;
     }
 }
 

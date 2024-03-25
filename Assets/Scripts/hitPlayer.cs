@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class hitPlayer : MonoBehaviour
 {
-    public int damageAmount = 1;
+    private int damageAmount = 1;
+
+    public void setDamage(int damage) {
+        damageAmount = damage;
+    }
     private void OnCollisionEnter(Collision other) {
         Debug.Log("Collision");
         IDamageable damageable = other.gameObject.GetComponent<IDamageable>();

@@ -147,6 +147,7 @@ MonoBehaviour:
   orientation: {fileID: 2448066083198879981}
   speed: 15
   health: 1
+  attack: 1
 --- !u!1 &2546931385617719450
 GameObject:
   m_ObjectHideFlags: 0
