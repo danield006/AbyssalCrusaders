@@ -36,6 +36,7 @@ public class bullet : MonoBehaviour
             bulletTime = reloadTimer;
             Rigidbody bulletRig = bulletObj.GetComponent<Rigidbody>();
             bulletRig.AddForce(bulletRig.transform.forward * bulletSpeed);
+            bulletObj.GetComponent<hitEnemy>().setDamage(gameObject.GetComponent<Damage>().attack);
             Destroy(bulletObj, 3f);
 
         }

@@ -20,10 +20,10 @@ public class Enemy : MonoBehaviour, IDamageable
     public event Action<int> OnTakeDamage;
 
     //flash
-    [SerializeField] Renderer renderer;
+    [SerializeField] Renderer materialRenderer;
     float flashTime = .15f;
     Material mat;
-    Color baseColor = Color.white * Mathf.LinearToGammaSpace (2.0f);
+    Color baseColor = Color.white * Mathf.LinearToGammaSpace (1.0f);
     Color finalColor;
 
     // Start is called before the first frame update
@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
         //flash
         finalColor = baseColor * Mathf.LinearToGammaSpace (0.0f);
-        mat = renderer.material;
+        mat = materialRenderer.material;
 
     }
 

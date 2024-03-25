@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class hitPlayer : MonoBehaviour
 {
-    private int damageAmount = 1;
+    private int damageAmount;
 
     public void setDamage(int damage) {
         damageAmount = damage;

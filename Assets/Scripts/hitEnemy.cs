@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class hitEnemy : MonoBehaviour
 {
-    public int damageAmount = 1;
+    public int damageAmount;
     private void OnCollisionEnter(Collision other) {
         Debug.Log("Collision");
         IDamageable damageable = other.gameObject.GetComponent<IDamageable>();
@@ -14,5 +14,9 @@ public class hitEnemy : MonoBehaviour
              damageable.Damage(damageAmount);
              Destroy(gameObject);
         }
+    }
+
+    public void setDamage(int damage) {
+        damageAmount = damage;
     }
 }

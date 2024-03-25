@@ -8,6 +8,7 @@ public class Damage : MonoBehaviour, IDamageable
 {
     public int currentHealth;
     public int maxHealth = 10;
+    public int attack;
     public event Action OnDeath;
     public event Action<int> OnTakeDamage;
 
