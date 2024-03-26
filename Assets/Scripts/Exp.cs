@@ -42,11 +42,26 @@ public class Exp : MonoBehaviour
         Time.timeScale = 0f;
     }
 
+    //deals with all pickup code
     private void OnTriggerEnter(Collider other) {
         Debug.Log("Entered collision with " + other.gameObject.name);
-        if(other.gameObject.tag == "Dropped") {
+        if(other.gameObject.tag == "Small Exp") {
             exp += 1;
             expText.text = "Exp: " + exp.ToString() + "/" + cap.ToString();
+            Destroy(other.gameObject);
+        } else if(other.gameObject.tag == "Medium Exp") {
+            exp += 3;
+            Destroy(other.gameObject);
+        } else if(other.gameObject.tag == "Big Exp") {
+            exp += 5;
+            Destroy(other.gameObject);
+        } else if(other.gameObject.tag == "Giant Exp") {
+            exp += 10;
+            Destroy(other.gameObject);
+        } else if(other.gameObject.tag == "HealthPack") {
+            int maxHp = gameObject.GetComponent<Damage>().maxHealth;
+            int healAmount = maxHp / 10; // heals for 10% of max hp
+            gameObject.GetComponent<Damage>().Heal(healAmount);
             Destroy(other.gameObject);
         }
     }

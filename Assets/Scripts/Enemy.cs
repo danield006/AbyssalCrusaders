@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -54,7 +55,38 @@ public class Enemy : MonoBehaviour, IDamageable
 
     private void spawnDrop() {
         Vector3 location = transform.position;
-        GameObject drop = drops[0];//add a way for random drops
+        location = new Vector3(location.x, 0.5f, location.z);
+        float dropChance = UnityEngine.Random.Range(0f, 100f);
+        GameObject drop = drops[0]; //drop small exp 35% 0 - 35
+        if(dropChance < 35) {
+            drop = drops[0]; //drop small exp 35% 0 - 35
+        } else if(dropChance > 35 && dropChance < 60) {
+            drop = drops[1]; //drop medium exp 25% 35 - 60
+        } else if(dropChance > 60 && dropChance < 75) {
+            drop = drops[2]; //drop big exp 15% 60 - 75
+        } else if(dropChance > 75 && dropChance < 85) {
+            drop = drops[3]; //drop giant exp 10% 75 - 85
+        } else if(dropChance > 85) {
+            drop = drops[4]; //drop health and random exp 15% 85 - 100
+            Instantiate(drop, location, Quaternion.identity);
+
+            int random2 = UnityEngine.Random.Range(0, 4);
+            switch(random2) {
+                case 0:
+                    drop = drops[0]; //drop small exp 25%
+                    break;
+                case 1:
+                    drop = drops[1]; //drop medium exp 25%
+                    break;
+                case 2:
+                    drop = drops[2]; //drop big exp 25%
+                    break;
+                case 3:
+                    drop = drops[3]; //drop giant exp 25%
+                    break;
+            }
+        }
+        
         Instantiate(drop, location, Quaternion.identity);
     }
 

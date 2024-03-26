@@ -288,5 +288,10 @@ MonoBehaviour:
   spawnPoint: {fileID: 951974807729388615}
   enemySpeed: 100
   drops:
+  - {fileID: 2219906455617995190, guid: 122aa2e9ce18999439e0b644a8bde7d0, type: 3}
+  - {fileID: 1189931732401986033, guid: 240a315f1fa81894b934b740204bcd3b, type: 3}
   - {fileID: 6847357369760736920, guid: b3591cded3c46cd4cb1166db31a8dfe3, type: 3}
+  - {fileID: 2626005002929513619, guid: 15ec44d8fcf47ff488aa1ad26a766f09, type: 3}
+  - {fileID: 245794024416743439, guid: edd7bcb58f959f0488f4d73e5c222dae, type: 3}
   health: 2
+  attack: 1

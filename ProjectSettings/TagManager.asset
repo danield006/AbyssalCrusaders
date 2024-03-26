@@ -6,8 +6,13 @@ TagManager:
   tags:
   - Ground
   - Enemy
-  - Dropped
   - Bullet
+  - HealthPack
+  - Small Exp
+  - Big Exp
+  - Medium Exp
+  - Giant Exp
+  - Dropped
   layers:
   - Default
   - TransparentFX

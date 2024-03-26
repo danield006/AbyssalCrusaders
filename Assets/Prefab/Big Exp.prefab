@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8103119186840318467}
   m_Layer: 8
   m_Name: Big Exp
-  m_TagString: Dropped
+  m_TagString: Big Exp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
