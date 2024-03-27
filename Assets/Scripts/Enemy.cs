@@ -50,7 +50,11 @@ public class Enemy : MonoBehaviour, IDamageable
 
 		//Color finalColor = baseColor * Mathf.LinearToGammaSpace (1.0f);
 
-
+        if (health <= 0)
+        {
+            spawnDrop();
+            Destroy(gameObject);
+        }
     }
 
     private void spawnDrop() {
@@ -94,11 +98,7 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         health -= damageAmount;
         StartCoroutine(EFlash());
-        if (health <= 0)
-        {
-            spawnDrop();
-            Destroy(gameObject);
-        }
+        
 
     }
 

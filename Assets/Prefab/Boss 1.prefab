@@ -13653,6 +13653,7 @@ GameObject:
   - component: {fileID: 1108689867297454324}
   - component: {fileID: 8608879205117098095}
   - component: {fileID: 7991474448990187483}
+  - component: {fileID: 4719243340546008862}
   m_Layer: 7
   m_Name: Boss 1
   m_TagString: Enemy
@@ -13742,6 +13743,18 @@ CapsuleCollider:
   m_Height: 1.5
   m_Direction: 1
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &4719243340546008862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6140303134746891236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70082dfd4a2e4a147877b0d617f057f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6144932291436786321
 GameObject:
   m_ObjectHideFlags: 0
