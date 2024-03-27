@@ -59,7 +59,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
         if(StaticData.surviveMin > lastMinute) {
             lastMinute = StaticData.surviveMin;
-            health += 2;
+            health ++;
             attack++;
         }
     }
