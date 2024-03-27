@@ -18,6 +18,9 @@ public class bullet : MonoBehaviour
     void Start()
     {
         bulletTime = 0;
+
+        //load stats
+        reloadTimer = StaticData.playerReloadTime;
     }
 
     // Update is called once per frame
@@ -25,6 +28,9 @@ public class bullet : MonoBehaviour
     {
         Shoot();
         reloadBar.UpdateReloadBar(reloadTimer, reloadTimer - bulletTime);
+
+        //update stats
+        StaticData.playerReloadTime = reloadTimer;
     }
 
     void Shoot() {

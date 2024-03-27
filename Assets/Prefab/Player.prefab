@@ -706,11 +706,11 @@ MonoBehaviour:
   speed: 200
   _rb: {fileID: 3734823482079553757}
   mainCamera: {fileID: 0}
-  orientation: {fileID: 0}
-  dashForce: 2
+  orientation: {fileID: 4345556684013170236}
+  dashForce: 1.25
   dashCount: 1
   dashCooldown: 5
-  dashBar: {fileID: 0}
+  dashBar: {fileID: 4563190828926486939}
 --- !u!114 &1268576578952017806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -726,8 +726,8 @@ MonoBehaviour:
   reloadTimer: 1
   projectile: {fileID: 5752674690743388059, guid: b73d6974430c3984386f7d3de3cf35d8, type: 3}
   spawnPoint: {fileID: 4013312385263327621}
-  bulletSpeed: 100
-  reloadBar: {fileID: 0}
+  bulletSpeed: 150
+  reloadBar: {fileID: 3400810138840666554}
 --- !u!114 &1077279731186781014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -744,7 +744,7 @@ MonoBehaviour:
   expText: {fileID: 0}
   levelText: {fileID: 0}
   exp: 0
-  level: 0
+  level: 1
   cap: 0
   expBar: {fileID: 0}
 --- !u!114 &1771129731373338581
@@ -759,9 +759,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5e2a650ac7423a41a6f768b1b405ac2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 0
+  currentHealth: 10
   maxHealth: 10
-  healthBar: {fileID: 0}
+  attack: 1
+  healthBar: {fileID: 8562326730863688002}
 --- !u!1001 &1216863391187039991
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1986,3 +1987,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1319642090368631955, guid: 911d659c5a37719448f23c12b30c85f5, type: 3}
   m_PrefabInstance: {fileID: 6685888948323193660}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8562326730863688002 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3033863024884951678, guid: 911d659c5a37719448f23c12b30c85f5, type: 3}
+  m_PrefabInstance: {fileID: 6685888948323193660}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c3ebc6b8b86d084e8e3f389bcc2aed1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -8,15 +8,17 @@ public class Exp : MonoBehaviour
     public GameObject LevelUpMenu;
     public TextMeshProUGUI expText;
     public TextMeshProUGUI levelText;
-    public int exp;
-    public int level;
+    public int exp = 0;
+    public int level = 1;
     public int cap;
 
     [SerializeField] private ExpBar expBar;
     void Start()
     {
-        exp = 0;
-        level = 1;
+        //load stats
+        exp = StaticData.playerExp;
+        level = StaticData.playerLevel;
+
         cap = Mathf.RoundToInt( 0.04f * Mathf.Pow(level, 3) + 0.8f * Mathf.Pow(level, 2) + 2 * level);
 
         expText.text = "Exp: " + exp.ToString() + "/" + cap.ToString();
@@ -29,6 +31,11 @@ public class Exp : MonoBehaviour
             levelUp();
         }
         expBar.UpdateExpBar(cap, exp);
+        expText.text = "Exp: " + exp.ToString() + "/" + cap.ToString();
+
+        //update stats
+        StaticData.playerExp = exp;
+        StaticData.playerLevel = level;
     }
     private void levelUp() {
         level++;
@@ -46,8 +53,7 @@ public class Exp : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         Debug.Log("Entered collision with " + other.gameObject.name);
         if(other.gameObject.tag == "Small Exp") {
-            exp += 1;
-            expText.text = "Exp: " + exp.ToString() + "/" + cap.ToString();
+            exp += 1;       
             Destroy(other.gameObject);
         } else if(other.gameObject.tag == "Medium Exp") {
             exp += 3;

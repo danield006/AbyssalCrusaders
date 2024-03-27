@@ -18,6 +18,12 @@ public class PlayerController : MonoBehaviour {
 
     [SerializeField] private DashBar dashBar;
 
+    private void Start() {
+        //load stats
+        speed = StaticData.playerSpeed;
+        dashForce = StaticData.playerDashForce;
+        dashCooldown = StaticData.playerDashCooldown;
+    }
     private void Update() {
         if(dashTimer > 0) dashTimer -= Time.deltaTime;
         //Dash
@@ -25,6 +31,11 @@ public class PlayerController : MonoBehaviour {
             Dash();
         }
         dashBar.UpdateDashBar(dashCooldown, dashCooldown - dashTimer);
+
+        //update stats
+        StaticData.playerSpeed = speed;
+        StaticData.playerDashForce = dashForce;
+        StaticData.playerDashCooldown = dashCooldown;
     }
 
     // Update is called once per frame

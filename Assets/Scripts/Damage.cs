@@ -16,8 +16,18 @@ public class Damage : MonoBehaviour, IDamageable
     [SerializeField] private HealthBar healthBar;
 
     private void Start() {
+        //load stats
+        maxHealth = StaticData.playerMaxHealth;
+        attack = StaticData.playerAttack;
+
         currentHealth = maxHealth;
         healthBar.UpdateHealthBar(maxHealth, currentHealth);
+    }
+    private void Update() {
+        //update static data
+        StaticData.playerMaxHealth = maxHealth;
+        StaticData.playerAttack = attack;
+
     }
     public void Heal(int healAmount)
     {

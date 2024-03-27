@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ExpBar : MonoBehaviour
 {
     private float target;
-    [SerializeField] private float reduceSpeed = 2f;
+    [SerializeField] private float reduceSpeed = 1f;
     [SerializeField] private Image expBarSprite;
 
     void Start() {
