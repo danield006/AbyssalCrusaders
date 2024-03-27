@@ -11,7 +11,7 @@ public class MenuSelect : MonoBehaviour
     }
 
     public void OpenSettings() {
-        
+        SceneManager.LoadScene(0);
     }
 
     public void ExitGame() {

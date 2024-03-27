@@ -43,7 +43,7 @@ public class Damage : MonoBehaviour, IDamageable
 
         healthBar.UpdateHealthBar(maxHealth, currentHealth);
         if(currentHealth <= 0) {
-            SceneManager.LoadScene("Loss Screen");
+            SceneManager.LoadScene(4);
         }
     }
 
