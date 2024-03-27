@@ -11,5 +11,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: 3f68d8ac5420c8740883ec03416e7e3b
+  - enabled: 1
+    path: Assets/Scenes/Level 2.unity
+    guid: ce02f0b56f0f8454887a24682999a520
+  - enabled: 1
+    path: Assets/Scenes/Level 3.unity
+    guid: dfff953dab4e9674e8f2e9106aba8e0d
+  - enabled: 1
+    path: Assets/Scenes/Loss Screen.unity
+    guid: 735fd29117a32d34dbcce062a201f6b7
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 961c72d0eceb4e34dbabf162895f644d, type: 2}

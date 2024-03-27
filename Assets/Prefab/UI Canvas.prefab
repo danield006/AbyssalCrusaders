@@ -698,6 +698,8 @@ GameObject:
   - component: {fileID: 9032753315318760047}
   - component: {fileID: 8331930606288420793}
   - component: {fileID: 6538444186529272986}
+  - component: {fileID: 8159545386299454325}
+  - component: {fileID: 2069604465245027197}
   m_Layer: 5
   m_Name: UI Canvas
   m_TagString: Untagged
@@ -793,3 +795,30 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8159545386299454325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8484113625167004414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d47226cdfafb5ad41ad94e9d4fa67968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reduceSpeed: 2
+  expBarSprite: {fileID: 8129859292687429868}
+--- !u!114 &2069604465245027197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8484113625167004414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b411ef6e31f357408b46258fa7af2f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerText: {fileID: 2461558843455164286}

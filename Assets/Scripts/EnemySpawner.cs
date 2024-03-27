@@ -9,6 +9,9 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float minimumSpawnTime;
     [SerializeField] private float maximumSpawnTime;
     private float timeUntilSpawn;
+
+    private float elapsedTime = 0f;
+    public float spawnAtTime;
     // Start is called before the first frame update
     void Awake() {
         SetTimeUntilSpawn();
@@ -18,9 +21,10 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        elapsedTime += Time.deltaTime;
         timeUntilSpawn -= Time.deltaTime;
 
-        if(timeUntilSpawn <= 0) {
+        if(timeUntilSpawn <= 0 && elapsedTime > spawnAtTime) {
             Vector3 spawnLocation = GetRandomPosOffScreen();
             Instantiate(enemy, spawnLocation, Quaternion.identity);
             SetTimeUntilSpawn();
