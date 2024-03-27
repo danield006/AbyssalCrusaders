@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Damage : MonoBehaviour, IDamageable
 {
@@ -31,6 +32,9 @@ public class Damage : MonoBehaviour, IDamageable
         currentHealth -= damageAmount;
 
         healthBar.UpdateHealthBar(maxHealth, currentHealth);
+        if(currentHealth <= 0) {
+            SceneManager.LoadScene("Loss Screen");
+        }
     }
 
 
