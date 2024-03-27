@@ -13,6 +13,8 @@ public class Exp : MonoBehaviour
     public int cap;
 
     [SerializeField] private ExpBar expBar;
+
+    [SerializeField] private List<GameObject> levelOptions;
     void Start()
     {
         //load stats
@@ -45,8 +47,19 @@ public class Exp : MonoBehaviour
         expText.text = "Exp: " + exp.ToString() + "/" + cap.ToString();
         levelText.text = "Level " + level.ToString();
 
-        LevelUpMenu.SetActive(true);
+
         Time.timeScale = 0f;
+        LevelUpMenu.SetActive(true);
+        //random upgrades
+        int randomNum = Random.Range(0, 5);
+        levelOptions[randomNum ].SetActive(true);
+        randomNum = Random.Range(0, 5);
+        levelOptions[randomNum + (5)].SetActive(true);
+        randomNum = Random.Range(0, 5);
+        levelOptions[randomNum + (10)].SetActive(true);
+        
+
+        
     }
 
     //deals with all pickup code

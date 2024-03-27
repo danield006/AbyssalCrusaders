@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class LevelUpMenu : MonoBehaviour
 {
-    public GameObject menuPanel;
+    public List<GameObject> menuPanels;
     public Damage playerStat;
     public PlayerController playerSpeed;
     public bullet playerReload;
@@ -15,29 +15,46 @@ public class LevelUpMenu : MonoBehaviour
         playerStat.maxHealth++;
         playerStat.currentHealth++; 
         healthBar.UpdateHealthBar(playerStat.maxHealth, playerStat.currentHealth);
-        menuPanel.SetActive(false);
+        foreach(GameObject menuPanel in menuPanels) {
+            menuPanel.SetActive(false);
+        }
+        
         Time.timeScale = 1f;
     }
 
     public void attackUp() {
         playerStat.attack++; 
         
-        menuPanel.SetActive(false);
+        foreach(GameObject menuPanel in menuPanels) {
+            menuPanel.SetActive(false);
+        }
         Time.timeScale = 1f;
     }
 
     public void speedUp() {
         playerSpeed.speed *= 1.05f;
 
-        menuPanel.SetActive(false);
+        foreach(GameObject menuPanel in menuPanels) {
+            menuPanel.SetActive(false);
+        }
         Time.timeScale = 1f;
     }
 
     public void cooldownUp() {
-        playerReload.reloadTimer *= 0.9f;
         playerSpeed.dashCooldown *= 0.8f;
 
-        menuPanel.SetActive(false);
+        foreach(GameObject menuPanel in menuPanels) {
+            menuPanel.SetActive(false);
+        }
+        Time.timeScale = 1f;
+    }
+
+    public void reloadUp() {
+        playerReload.reloadTimer *= 0.85f;
+
+        foreach(GameObject menuPanel in menuPanels) {
+            menuPanel.SetActive(false);
+        }
         Time.timeScale = 1f;
     }
 }
