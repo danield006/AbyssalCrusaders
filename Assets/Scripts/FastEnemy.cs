@@ -24,6 +24,8 @@ public class FastEnemy : MonoBehaviour, IDamageable
     Color origColor;
     float flashTime = .15f;
 
+    int lastMinute = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +46,12 @@ public class FastEnemy : MonoBehaviour, IDamageable
         if (timer <= 0) {
             transform.LookAt(player.transform);
             timer = 10f;
+        }
+
+        if(StaticData.surviveMin > lastMinute) {
+            lastMinute = StaticData.surviveMin;
+            health += 2;
+            attack++;
         }
     }
 

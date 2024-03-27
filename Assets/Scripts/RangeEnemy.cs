@@ -28,6 +28,9 @@ public class RangeEnemy : MonoBehaviour, IDamageable
     Color origColor;
     float flashTime = .15f;
 
+
+    int lastMinute = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +54,12 @@ public class RangeEnemy : MonoBehaviour, IDamageable
         }
         else {
             enemy.updateRotation = true;
+        }
+
+        if(StaticData.surviveMin > lastMinute) {
+            lastMinute = StaticData.surviveMin;
+            health += 2;
+            attack++;
         }
     }
 

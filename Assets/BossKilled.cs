@@ -9,5 +9,6 @@ public class BossKilled : MonoBehaviour
     void Update()
     {
        if(boss1 == null && boss2 == null) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+       StaticData.level++;
     }
 }

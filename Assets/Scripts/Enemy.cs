@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour, IDamageable
     Material mat;
     Color baseColor = Color.white * Mathf.LinearToGammaSpace (1.0f);
     Color finalColor;
+    int lastMinute = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -54,6 +55,12 @@ public class Enemy : MonoBehaviour, IDamageable
         {
             spawnDrop();
             Destroy(gameObject);
+        }
+
+        if(StaticData.surviveMin > lastMinute) {
+            lastMinute = StaticData.surviveMin;
+            health += 2;
+            attack++;
         }
     }
 

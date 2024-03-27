@@ -5,6 +5,7 @@ using UnityEngine;
 public class StaticData : MonoBehaviour
 {
     //timer
+    public static int timeElapsed;
     public static int surviveMin;
     public static int surviveSec;
 
